@@ -35,7 +35,15 @@ while True:
     print('4. Transaction history')
     print('5. Exit')
     print()
-    choice = int(input('Enter operation: '))
+    while True:
+        try:
+            choice = int(input('Enter operation: '))
+            if 1 <= choice <= 5:
+                break
+            else:
+                print("Choose a number from 1 to 5.")
+        except ValueError:
+            print('Invalid value! Please enter a number.')
     if choice == 1:
         show_balance()
         print()
