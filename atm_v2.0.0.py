@@ -1,11 +1,10 @@
+import json
+
+with open('account.json', 'r') as file:
+    account = json.load(file)
+
 print('Welcome to ATM')
 print()
-
-account = {
-    "name": "Bohdan",
-    "balance": 1000,
-    "pin": '1234'
-}
 
 password = ''
 attempts = 3
@@ -27,6 +26,10 @@ while password != account['pin']:
     
 def show_balance():
     print('Current balance:',account['balance'])
+
+def save_account():
+    with open('account.json', 'w') as file:
+        json.dump(account, file)
 
 while True:
     print('1. Check balance')
@@ -54,6 +57,7 @@ while True:
                 print('Operation failed! Wrong amount!')
             else:
                 account['balance'] += amount
+                save_account()
                 print('Deposit confirmed')
                 show_balance()
                 history.append(f"Deposit: +{amount}")
@@ -68,6 +72,7 @@ while True:
                 print('Operation failed! Wrong amount!')
             else:
                 account['balance'] -= amount
+                save_account()
                 print('Withdraw confirmed')
                 show_balance()
                 history.append(f'Withdraw: -{amount}')
