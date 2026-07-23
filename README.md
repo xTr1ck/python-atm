@@ -10,6 +10,7 @@ My first console ATM project written in Python.
 - Withdraw money
 - Transaction history
 - Input validation
+- Account data is loaded from account.json
 
 ## Technologies
 
@@ -18,3 +19,4 @@ My first console ATM project written in Python.
 - Lists
 - Loops
 - Functions
+- Json library
